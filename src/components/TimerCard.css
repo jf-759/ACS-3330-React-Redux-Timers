@@ -1,0 +1,17 @@
+.timer-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.timer-card.highlight {
+    background-color: #ffe4b2;
+    border-color: #ffa500;
+}
+
+.delete {
+    color: red;
+    margin-left: 10px;
+}
