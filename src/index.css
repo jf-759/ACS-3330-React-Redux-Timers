@@ -49,6 +49,7 @@ button {
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -71,9 +72,50 @@ h2 {
   text-align: center;
 }
 
-header {
-  background-color: #282c34;
-  color: white;
-  padding: 1rem;
+
+
+/* dark mode toggle */
+body {
+  transition: background 0.3s, color 0.3s;
+}
+
+.light-mode {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.timer-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: inherit;
+  color: inherit;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background: none;
+  border: 2px solid currentColor;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.toggle {
   text-align: center;
+  margin-bottom: 1rem;
+}
+
+.dark-mode-toggle {
+  background-color: rgb(117, 153, 164);
 }

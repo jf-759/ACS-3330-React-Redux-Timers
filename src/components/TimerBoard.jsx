@@ -15,7 +15,7 @@ function TimerBoard() {
   return (
     <div>
       <h2>All Timers</h2>
-      <button onClick={handleAddTimer}>Add Timer</button>
+      <button className='add-timer' onClick={handleAddTimer}>Add Timer</button>
       <div>
         {timers.map((timer) => (
           <TimerCard key={timer.id} timer={timer} />

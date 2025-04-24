@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { pauseTimer, resumeTimer, resetTimer, removeTimer } from "../features/timers/TimerSlice";
+import { pauseTimer, resumeTimer, resetTimer, removeTimer, renameTimer } from "../features/timers/TimerSlice";
 import { formatTime } from '../utils/formatTime'
+import EditableLabel from './EditableLabel'
 import './TimerCard.css'
 
 const TimerCard = ({ timer }) => {
   const dispatch = useDispatch();
   const [displayTime, setDisplayTime] = useState(timer.elapsed);
+  
+  const handleRename = (newName) => {
+    dispatch(renameTimer({ id: timer.id, newName }))
+  }
 
   useEffect(() => {
     let interval = null;
@@ -35,7 +40,9 @@ const TimerCard = ({ timer }) => {
 
   return (
     <div className={`timer-card ${elapsedSeconds >= 3600 ? "highlight" : ""}`}>
-      <h3>{timer.label}</h3>
+      <h3>
+        <EditableLabel value={timer.name} onSave={handleRename} />
+      </h3>
       <p title={`${displayTime}ms`}>Elapsed Time: {formattedTime}</p>
       <p>Status: {timer.isRunning ? "Running" : "Paused"}</p>
       {timer.isRunning ? (

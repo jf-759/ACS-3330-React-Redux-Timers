@@ -2,13 +2,24 @@
     border: 1px solid #ccc;
     padding: 10px;
     margin-bottom: 10px;
-    background-color: #fff;
+    background-color: var(--card-bg);
+    color: var(--card-text);
     transition: background-color 0.3s, border-color 0.3s;
 }
 
 .timer-card.highlight {
     background-color: #ffe4b2;
     border-color: #ffa500;
+}
+
+.timer-card button {
+    background-color: transparent;
+    color: inherit;
+    border: 1px solid currentColor;
+    padding: 0.5rem 1rem;
+    margin: 0.25rem;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 .delete {

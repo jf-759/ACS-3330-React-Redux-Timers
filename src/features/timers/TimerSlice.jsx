@@ -36,9 +36,16 @@ const timerSlice = createSlice({
             if (timer !== -1 && !state[timer].isRunning) {
                 state.splice(timer, 1)
             }
+        },
+        renameTimer: (state, action) => {
+            const { id, newName } = action.payload
+            const timer = state.find((t) => t.id === id)
+            if (timer) {
+                timer.name = newName
+            }
         }
     }
 })
 
-export const { addTimer, pauseTimer, resumeTimer, resetTimer, removeTimer } = timerSlice.actions
+export const { addTimer, pauseTimer, resumeTimer, resetTimer, removeTimer, renameTimer } = timerSlice.actions
 export default timerSlice.reducer
