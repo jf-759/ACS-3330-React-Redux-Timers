@@ -41,7 +41,7 @@ const TimerCard = ({ timer }) => {
   return (
     <div className={`timer-card ${elapsedSeconds >= 3600 ? "highlight" : ""}`}>
       <h3>
-        <EditableLabel value={timer.name} onSave={handleRename} />
+        <EditableLabel value={timer.name || ''} onSave={handleRename} />
       </h3>
       <p title={`${displayTime}ms`}>Elapsed Time: {formattedTime}</p>
       <p>Status: {timer.isRunning ? "Running" : "Paused"}</p>

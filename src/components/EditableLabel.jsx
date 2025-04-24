@@ -1,10 +1,14 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { FaPen } from 'react-icons/fa'
 import './EditableLabel.css'
 
 function EditableLabel({ value, onSave }) {
     const [isEditing, setIsEditing] = useState(false)
-    const [tempValue, setTempValue] = useState(value)
+    const [tempValue, setTempValue] = useState(value || "")
+
+    useEffect(() => {
+        setTempValue(value || "")
+    }, [value])
 
     const handleBlur = () => {
         setIsEditing(false)
